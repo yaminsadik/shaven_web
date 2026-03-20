@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Section, SectionHeader } from '@/components/layout/Section'
 import { AgeGateModal } from '@/components/ui/AgeGateModal'
 import { CTABanner } from '@/components/ui/CTABanner'
@@ -11,24 +10,10 @@ import { useNavigate } from '@tanstack/react-router'
 
 export function AdultPage() {
   const { ageGateAccepted } = useUIStore()
-  const [showModal, setShowModal] = useState(false)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (!ageGateAccepted) {
-      setShowModal(true)
-    }
-  }, [ageGateAccepted])
-
-  const handleClose = () => {
-    setShowModal(false)
-    if (!ageGateAccepted) {
-      navigate({ to: '/' })
-    }
-  }
-
   if (!ageGateAccepted) {
-    return <AgeGateModal open={showModal} onClose={handleClose} />
+    return <AgeGateModal onDecline={() => navigate({ to: '/' })} />
   }
 
   return (
