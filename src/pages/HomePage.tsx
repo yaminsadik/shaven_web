@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection'
+import { CategoryStrip } from '@/components/home/CategoryStrip'
 import { PromoSection } from '@/components/home/PromoSection'
 import { SignatureFood } from '@/components/home/SignatureFood'
 import { BrandValues } from '@/components/home/BrandValues'
@@ -16,7 +17,7 @@ export function HomePage() {
     <>
       {/* 1. Hero — brand gradient full-bleed */}
       <HeroSection />
-      {/* 2. Dual promo cards — dark bg */}
+      <CategoryStrip />
       <PromoSection />
       {/* 3. Featured food/content — accent bg */}
       <SignatureFood />

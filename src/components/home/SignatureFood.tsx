@@ -29,6 +29,7 @@ export function SignatureFood() {
             title={item.title}
             description={item.description}
             tag={item.tag}
+            href={item.href}
             aspectRatio="square"
           />
         ))}
@@ -41,6 +42,7 @@ export function SignatureFood() {
             title={item.title}
             description={item.description}
             tag={item.tag}
+            href={item.href}
             aspectRatio="video"
           />
         ))}

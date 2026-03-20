@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 
 interface MediaCardProps {
@@ -5,6 +6,7 @@ interface MediaCardProps {
   title: string
   description?: string
   tag?: string
+  href?: string
   className?: string
   aspectRatio?: 'square' | 'video' | 'portrait'
   overlay?: boolean
@@ -15,6 +17,7 @@ export function MediaCard({
   title,
   description,
   tag,
+  href,
   className = '',
   aspectRatio = 'video',
   overlay = true,
@@ -25,7 +28,7 @@ export function MediaCard({
     portrait: 'aspect-[3/4]',
   }
 
-  return (
+  const card = (
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25 }}
@@ -53,4 +56,10 @@ export function MediaCard({
       </div>
     </motion.div>
   )
+
+  if (href) {
+    return <Link to={href}>{card}</Link>
+  }
+
+  return card
 }

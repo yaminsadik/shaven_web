@@ -62,6 +62,7 @@ export function AdultPage() {
               image={cat.image}
               title={cat.title}
               description={cat.description}
+              href={cat.href}
               aspectRatio="portrait"
             />
           ))}

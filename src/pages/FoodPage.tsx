@@ -1,8 +1,10 @@
+import { Link } from '@tanstack/react-router'
 import { Section, SectionHeader } from '@/components/layout/Section'
 import { MediaCard } from '@/components/ui/MediaCard'
 import { CTABanner } from '@/components/ui/CTABanner'
 import { signatureFood, foodPageItems } from '@/data/food'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 export function FoodPage() {
   return (
@@ -38,6 +40,7 @@ export function FoodPage() {
               title={item.title}
               description={item.description}
               tag={item.tag}
+              href={item.href}
               aspectRatio="square"
             />
           ))}
@@ -50,6 +53,7 @@ export function FoodPage() {
               title={item.title}
               description={item.description}
               tag={item.tag}
+              href={item.href}
               aspectRatio="video"
             />
           ))}
@@ -69,7 +73,16 @@ export function FoodPage() {
               transition={{ delay: ci * 0.1 }}
               className="glass-card rounded-2xl p-6 sm:p-8"
             >
-              <h3 className="text-xl font-bold text-white mb-4">{category.category}</h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-white">{category.category}</h3>
+                <Link
+                  to={category.href}
+                  className="flex items-center gap-1 text-xs font-semibold text-accent-400 hover:text-accent-300 transition-colors"
+                >
+                  View All
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
               <div className="space-y-3">
                 {category.items.map((item) => (
                   <div

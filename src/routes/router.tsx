@@ -13,6 +13,7 @@ import { AppPage } from '@/pages/AppPage'
 import { DealsPage } from '@/pages/DealsPage'
 import { StoresPage } from '@/pages/StoresPage'
 import { AdultPage } from '@/pages/AdultPage'
+import { CategoryDetailPage } from '@/pages/CategoryDetailPage'
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -68,6 +69,12 @@ const adultRoute = createRoute({
   component: AdultPage,
 })
 
+const categoryRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/category/$slug',
+  component: CategoryDetailPage,
+})
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   foodRoute,
@@ -76,6 +83,7 @@ const routeTree = rootRoute.addChildren([
   dealsRoute,
   storesRoute,
   adultRoute,
+  categoryRoute,
 ])
 
 export const router = createRouter({
