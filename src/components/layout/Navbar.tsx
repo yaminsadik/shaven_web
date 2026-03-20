@@ -267,7 +267,7 @@ export function Navbar() {
   const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useUIStore()
   const [scrolled, setScrolled] = useState(false)
   const [activeMega, setActiveMega] = useState<string | null>(null)
-  const megaTimeoutRef = useRef<ReturnType<typeof setTimeout>>()
+  const megaTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const location = useLocation()
 
   useEffect(() => {
