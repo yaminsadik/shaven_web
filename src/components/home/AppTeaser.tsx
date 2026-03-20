@@ -14,7 +14,7 @@ export function AppTeaser() {
         <div className="order-1 lg:order-2">
           <SectionHeader
             title="Get the 7th Heaven App"
-            subtitle="Check your points, clip deals, and pay at the pump — right from your phone."
+            subtitle="Check your points, clip deals, and pay at the pump from your phone."
             align="left"
           />
           <div className="space-y-4">

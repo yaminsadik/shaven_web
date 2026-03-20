@@ -17,7 +17,7 @@ export function AdultTeaser() {
               21+ Only
             </span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-white">
+          <h3 className="section-heading text-xl sm:text-2xl text-white">
             Cold Beer Cave, Wine & Liquor
           </h3>
           <p className="mt-2 text-sm text-blue-200/50 max-w-md">
@@ -28,7 +28,7 @@ export function AdultTeaser() {
         <div className="shrink-0">
           <Link
             to="/21-plus"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3.5 min-h-11 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-semibold transition-colors"
           >
             See What's Cold
             <ArrowRight className="w-4 h-4" />

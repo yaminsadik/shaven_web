@@ -4,14 +4,14 @@ import { Link } from '@tanstack/react-router'
 
 export function StoreGallery() {
   return (
-    <Section>
+    <Section variant="paper">
       <SectionHeader
         title="Inside Our Stores"
-        subtitle="Clean, stocked, and ready for you — day or night."
+        subtitle="Clean, stocked, and ready for you, day or night."
         action={
           <Link
             to="/stores"
-            className="text-sm font-semibold text-accent-400 hover:text-accent-300 transition-colors"
+            className="text-sm font-semibold text-accent-600 hover:text-accent-700 transition-colors"
           >
             Find a Store
           </Link>

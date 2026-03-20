@@ -2,7 +2,7 @@ export const adultCategories = [
   {
     id: 'beer',
     title: 'Beer',
-    description: 'Domestic, imports, and craft — always cold from the beer cave.',
+    description: 'Domestic, imports, and craft, always cold from the beer cave.',
     /* REPLACE: /media/adult/beer.jpg */
     image: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80',
   },

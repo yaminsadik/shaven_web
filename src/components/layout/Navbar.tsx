@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from '@tanstack/react-router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, MapPin, User, ChevronDown } from 'lucide-react'
+import { Menu, X, MapPin, User, ChevronDown, Beer } from 'lucide-react'
 import { useUIStore } from '@/store/uiStore'
 
 const foodLinks = [
@@ -51,7 +51,7 @@ export function Navbar() {
   const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useUIStore()
   const [scrolled, setScrolled] = useState(false)
   const [activeMega, setActiveMega] = useState<string | null>(null)
-  const megaTimeoutRef = useRef<ReturnType<typeof setTimeout>>()
+  const megaTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const location = useLocation()
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export function Navbar() {
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 group" aria-label="Home">
           <img src="/media/logo.png" alt="7th Heaven" className="w-9 h-9 rounded-lg object-contain" />
-          <span className="text-lg font-bold tracking-tight text-white group-hover:text-accent-300 transition-colors hidden sm:block">
+          <span className="section-heading text-lg tracking-tight text-white group-hover:text-accent-300 transition-colors hidden sm:block">
             7th Heaven
           </span>
         </Link>
@@ -162,7 +162,7 @@ export function Navbar() {
                     <Link
                       key={link.label}
                       to={link.href}
-                      className="text-xl font-bold text-white hover:text-accent-300 transition-colors py-1"
+                      className="section-heading text-lg md:text-xl text-white hover:text-accent-300 transition-colors py-1"
                     >
                       {link.label}
                     </Link>
@@ -193,6 +193,13 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                to="/21-plus"
+                className="flex items-center gap-2 px-4 py-3 text-base font-medium text-purple-200 hover:text-purple-100 hover:bg-purple-500/15 rounded-lg border border-purple-500/25 transition-colors"
+              >
+                <Beer className="w-5 h-5 shrink-0 opacity-90" />
+                Beer, wine &amp; more (21+)
+              </Link>
               <div className="pt-3 flex flex-col gap-2 border-t border-brand-500/20 mt-2">
                 <Link
                   to="/stores"

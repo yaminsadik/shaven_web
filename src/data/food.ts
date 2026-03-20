@@ -18,7 +18,7 @@ export const signatureFood = [
   {
     id: 'roller-grill',
     title: 'Roller Grill',
-    description: 'Hot dogs, taquitos, egg rolls, tornado wraps — always spinning, always ready.',
+    description: 'Hot dogs, taquitos, egg rolls, tornado wraps, always spinning, always ready.',
     tag: 'Grab & Go',
     /* REPLACE: /media/food/roller-grill.jpg */
     image: 'https://images.unsplash.com/photo-1619740455993-9d701c01b0be?w=800&q=80',
@@ -38,6 +38,14 @@ export const signatureFood = [
     tag: 'Any Size $0.99',
     /* REPLACE: /media/food/fountain.jpg */
     image: 'https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=800&q=80',
+  },
+  {
+    id: 'fuel-drinks',
+    title: 'Fuel & Cooler Run',
+    description: 'Fill up fast, grab ice-cold drinks and road snacks. One stop, no hassle.',
+    tag: 'Gas, drinks, snacks',
+    /* REPLACE: /media/food/fuel-cooler.jpg */
+    image: 'https://images.unsplash.com/photo-1565793979803-ca4e3444ee95?w=800&q=80',
   },
 ]
 

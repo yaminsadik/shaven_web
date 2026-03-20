@@ -4,10 +4,10 @@ import { homeCategories } from '@/data/categories'
 
 export function CategoryStrip() {
   return (
-    <Section>
+    <Section variant="paper">
       <SectionHeader
         title="Everything Under One Roof"
-        subtitle="Gas, food, drinks, snacks, and cold beer — all in one stop."
+        subtitle="Gas, food, drinks, snacks, and cold beer, all in one stop."
       />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {homeCategories.map((cat) => (

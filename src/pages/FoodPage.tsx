@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 export function FoodPage() {
   return (
     <>
-      {/* Hero — full-bleed image with overlay */}
+      {/* Hero: full-bleed image with overlay */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -22,16 +22,16 @@ export function FoodPage() {
             Hot Food, All Day
           </h1>
           <p className="mt-4 text-lg text-blue-200/70 max-w-xl mx-auto">
-            Roller grill, fried chicken, pizza, breakfast — made fresh in store. Not your average gas station food.
+            Roller grill, fried chicken, pizza, breakfast, made fresh in store. Not your average gas station food.
           </p>
         </div>
       </section>
 
-      {/* Signature food — 4-column article-style grid */}
-      <Section>
+      {/* Signature food: grid */}
+      <Section variant="paper">
         <SectionHeader title="The Good Stuff" subtitle="The items people actually come in for." />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {signatureFood.slice(0, 3).map((item) => (
+          {signatureFood.map((item) => (
             <MediaCard
               key={item.id}
               image={item.image}
@@ -42,21 +42,9 @@ export function FoodPage() {
             />
           ))}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-4 md:mt-5">
-          {signatureFood.slice(3).map((item) => (
-            <MediaCard
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              tag={item.tag}
-              aspectRatio="video"
-            />
-          ))}
-        </div>
       </Section>
 
-      {/* Menu categories — glass card grid */}
+      {/* Menu categories: glass card grid */}
       <Section dark>
         <SectionHeader title="Full Menu & Prices" subtitle="What's hot and what it costs. Simple." />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -84,7 +72,7 @@ export function FoodPage() {
                         </span>
                       )}
                     </div>
-                    <span className="text-sm font-semibold text-accent-400">{item.price}</span>
+                    <span className="price-text text-base text-accent-400">{item.price}</span>
                   </div>
                 ))}
               </div>
@@ -93,7 +81,7 @@ export function FoodPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section variant="paper">
         <CTABanner
           title="Hungry? Find Your Store"
           subtitle="Hot food ready now at a 7th Heaven near you."

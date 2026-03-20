@@ -20,8 +20,8 @@ export function DealsPage() {
         </div>
       </section>
 
-      {/* Current Deals — 2-col grid */}
-      <Section>
+      {/* Current Deals: 2-col grid */}
+      <Section variant="paper">
         <SectionHeader title="Current Deals" subtitle="Available now at all locations." />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {promotions.map((p) => (
@@ -33,7 +33,7 @@ export function DealsPage() {
       {/* Seasonal */}
       <Section dark>
         <SectionHeader title="Seasonal Specials" subtitle="Limited-time stuff. Grab it while it lasts." />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
           {seasonalSpecials.map((s, i) => (
             <motion.div
               key={s.id}
@@ -43,7 +43,7 @@ export function DealsPage() {
               transition={{ delay: i * 0.1 }}
               className="glass-card rounded-2xl p-6 sm:p-8"
             >
-              <h3 className="text-xl font-bold text-white">{s.title}</h3>
+              <h3 className="section-heading text-lg sm:text-xl text-white">{s.title}</h3>
               <p className="mt-2 text-sm text-blue-200/50">{s.description}</p>
               <div className="mt-4 flex items-center gap-2 text-xs text-blue-200/30">
                 <Calendar className="w-3.5 h-3.5" />
@@ -54,7 +54,7 @@ export function DealsPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section variant="paper">
         <CTABanner
           title="Rewards Members Save More"
           subtitle="Sign up free and start getting member-only prices and bonus point deals."

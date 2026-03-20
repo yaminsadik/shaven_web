@@ -33,7 +33,7 @@ export function AdultPage() {
 
   return (
     <>
-      {/* Hero — purple gradient */}
+      {/* Hero: purple gradient */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-purple-900/30 via-surface-900 to-surface-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="mx-auto flex items-center justify-center gap-2 mb-6">
@@ -52,8 +52,8 @@ export function AdultPage() {
         </div>
       </section>
 
-      {/* Categories — 4-col portrait cards */}
-      <Section>
+      {/* Categories: portrait cards */}
+      <Section variant="paper">
         <SectionHeader title="Browse by Category" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {adultCategories.map((cat) => (
@@ -68,7 +68,7 @@ export function AdultPage() {
         </div>
       </Section>
 
-      {/* Promos — glass card grid */}
+      {/* Promos: glass card grid */}
       <Section dark>
         <SectionHeader title="This Week's Deals" subtitle="New specials every week. Check in-store for availability." />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
@@ -92,11 +92,11 @@ export function AdultPage() {
       </Section>
 
       {/* Disclaimer */}
-      <Section>
+      <Section variant="paper">
         <div className="text-center max-w-2xl mx-auto">
-          <div className="glass-card rounded-2xl p-6 sm:p-8 border-purple-500/10">
-            <Calendar className="w-6 h-6 text-blue-200/30 mx-auto mb-3" />
-            <p className="text-sm text-blue-200/50 leading-relaxed">
+          <div className="rounded-2xl p-6 sm:p-8 border border-slate-200 bg-white/90 shadow-sm">
+            <Calendar className="w-6 h-6 text-slate-400 mx-auto mb-3" />
+            <p className="text-sm text-slate-600 leading-relaxed">
               Product availability varies by location and is subject to local and state regulations.
               Must be 21 years of age or older to purchase alcohol products. Please drink responsibly.
               Don't drink and drive.
