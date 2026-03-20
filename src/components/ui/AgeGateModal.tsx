@@ -55,7 +55,7 @@ export function AgeGateModal({ open, onClose }: AgeGateModalProps) {
                 onClick={handleAccept}
                 className="w-full py-3.5 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-semibold transition-colors"
               >
-                I am 21 or older — Enter
+                I am 21 or older: Enter
               </button>
               <button
                 onClick={onClose}

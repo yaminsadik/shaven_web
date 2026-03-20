@@ -15,28 +15,30 @@ import { Section } from '@/components/layout/Section'
 export function HomePage() {
   return (
     <>
-      {/* 1. Hero — brand gradient full-bleed */}
+      {/* 1. Hero: brand gradient full-bleed */}
       <HeroSection />
+      {/* 2. Category shortcuts */}
       <CategoryStrip />
+      {/* 3. Promo cards: dark bg */}
       <PromoSection />
-      {/* 3. Featured food/content — accent bg */}
+      {/* 4. Featured food: accent bg */}
       <SignatureFood />
-      {/* 4. Brand values — dark bg */}
+      {/* 5. Brand values: dark bg */}
       <BrandValues />
-      {/* 5. Rewards — light bg */}
+      {/* 6. Rewards: paper stripe */}
       <RewardsSection />
-      {/* 6. App teaser — dark bg */}
+      {/* 7. App teaser: dark bg */}
       <AppTeaser />
-      {/* 7. Inside 7th Heaven articles — dark bg */}
+      {/* 8. Inside 7th Heaven: dark bg */}
       <InsideSection />
-      {/* 8. Store gallery — light bg */}
+      {/* 9. Store gallery: paper stripe */}
       <StoreGallery />
-      {/* 9. Adult teaser — dark bg */}
+      {/* 10. Adult teaser: dark bg */}
       <AdultTeaser />
-      {/* 10. Social links */}
+      {/* 11. Social: paper stripe */}
       <SocialSection />
-      {/* 11. Final CTA */}
-      <Section>
+      {/* 12. Final CTA */}
+      <Section variant="paper">
         <CTABanner
           title="Stop In Today"
           subtitle="Gas up, grab something hot, and earn rewards. Find a 7th Heaven near you."

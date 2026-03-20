@@ -10,14 +10,14 @@ showing the exact local path to swap in.
 
 ```
 public/media/
-├── hero/           — Homepage hero & page-top backgrounds
-├── food/           — Food item photos
-├── categories/     — Category card images
-├── gallery/        — In-store gallery grid photos
-├── promotions/     — Deal & promo card backgrounds
-├── adult/          — 21+ section (beer, wine, liquor)
-├── app/            — App page screenshots / mockup screens
-├── logo.png        — Brand logo (already in place)
+├── hero/           : Homepage hero and page-top backgrounds
+├── food/           : Food item photos
+├── categories/     : Category card images
+├── gallery/        : In-store gallery grid photos
+├── promotions/     : Deal and promo card backgrounds
+├── adult/          : 21+ section (beer, wine, liquor)
+├── app/            : App page screenshots / mockup screens
+├── logo.png        : Brand logo (already in place)
 └── store-exterior.png
 ```
 
@@ -110,7 +110,7 @@ public/media/
 
 ## How to swap placeholder URLs
 
-Search for `/* REPLACE:` in the codebase — every Unsplash URL has one.
+Search for `/* REPLACE:` in the codebase: every Unsplash URL has one.
 
 **Example:**
 ```ts

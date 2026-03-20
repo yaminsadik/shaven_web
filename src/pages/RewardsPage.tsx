@@ -11,8 +11,9 @@ function ProfileBanner() {
     <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 gradient-brand">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="section-heading text-3xl sm:text-4xl md:text-5xl text-white">
-          {loyaltyCard.memberName.split(' ').slice(0, 2).join(' ').toLowerCase()}
+          {loyaltyCard.greetingLine}
         </h1>
+        <p className="mt-2 text-base text-blue-100/80">{loyaltyCard.memberName}</p>
         <p className="mt-2 text-sm text-blue-200/50">
           Member Since: May 2023
         </p>
@@ -119,7 +120,7 @@ function AccordionTiers() {
               onClick={() => setOpenTier(openTier === tier.name ? null : tier.name)}
               className="w-full flex items-center justify-between px-4 py-3 bg-brand-600/40 hover:bg-brand-600/60 transition-colors rounded-lg text-left"
             >
-              <span className="text-sm font-bold text-white">{tier.name}</span>
+              <span className="section-heading text-sm text-white">{tier.name}</span>
               <ChevronDown
                 className={`w-4 h-4 text-blue-200/50 transition-transform ${
                   openTier === tier.name ? 'rotate-180' : ''
@@ -259,7 +260,7 @@ export function RewardsPage() {
             </div>
           </Section>
 
-          <Section>
+          <Section variant="paper">
             <SectionHeader title="Rewards Tiers" subtitle="Stop in more, save more." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
               {rewardsTiers.map((tier, i) => (
@@ -274,8 +275,10 @@ export function RewardsPage() {
                   <div className={`mx-auto w-12 h-12 rounded-full ${tier.color} flex items-center justify-center mb-4`}>
                     <Star className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white">{tier.name}</h3>
-                  <p className="text-xs text-blue-200/30 mt-1">{tier.points} pts to unlock</p>
+                  <h3 className="section-heading text-lg text-white">{tier.name}</h3>
+                  <p className="text-xs text-blue-200/30 mt-1">
+                    <span className="price-text text-sm text-accent-400">{tier.points}</span> pts to unlock
+                  </p>
                   <div className="mt-4 space-y-2">
                     {tier.perks.split(' • ').map((perk) => (
                       <div key={perk} className="flex items-center gap-2 text-sm text-blue-200/70">
@@ -290,7 +293,7 @@ export function RewardsPage() {
           </Section>
         </>
       ) : (
-        <Section>
+        <Section variant="paper">
           <AccountTab />
         </Section>
       )}

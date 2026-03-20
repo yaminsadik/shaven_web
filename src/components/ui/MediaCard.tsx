@@ -49,7 +49,7 @@ export function MediaCard({
             {tag}
           </span>
         )}
-        <h3 className="text-lg sm:text-xl font-bold text-white">{title}</h3>
+        <h3 className="section-heading text-lg sm:text-xl text-white">{title}</h3>
         {description && (
           <p className="mt-1 text-sm text-blue-200/60 line-clamp-2">{description}</p>
         )}

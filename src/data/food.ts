@@ -16,17 +16,9 @@ export const signatureFood = [
     image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80',
   },
   {
-    id: 'family',
-    title: 'Family Meals',
-    description: '8 or 12-piece family packs with large sides and biscuits. Starting at $31.99.',
-    tag: 'Feed the Crew',
-    href: '/food',
-    image: 'https://images.unsplash.com/photo-1562802378-063ec186a863?w=800&q=80',
-  },
-  {
-    id: 'snacks',
-    title: 'Snacks & Sides',
-    description: 'Mini tacos, corn dogs, egg rolls, cheese balls, taquitos, and more.',
+    id: 'roller-grill',
+    title: 'Roller Grill',
+    description: 'Hot dogs, taquitos, egg rolls, tornado wraps, always spinning, always ready.',
     tag: 'Grab & Go',
     href: '/food',
     image: 'https://images.unsplash.com/photo-1619740455993-9d701c01b0be?w=800&q=80',
@@ -38,6 +30,14 @@ export const signatureFood = [
     tag: '86¢ Fountain',
     href: '/deals',
     image: 'https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=800&q=80',
+  },
+  {
+    id: 'fuel-drinks',
+    title: 'Fuel & Cooler Run',
+    description: 'Fill up fast, grab ice-cold drinks and road snacks. One stop, no hassle.',
+    tag: 'Gas, drinks, snacks',
+    /* REPLACE: /media/food/fuel-cooler.jpg */
+    image: 'https://images.unsplash.com/photo-1565793979803-ca4e3444ee95?w=800&q=80',
   },
 ]
 

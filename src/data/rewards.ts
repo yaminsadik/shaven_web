@@ -61,6 +61,7 @@ export const rewardsTiers = [
 ]
 
 export const loyaltyCard = {
+  greetingLine: 'Welcome back',
   memberName: 'Heaven Rewards Member',
   memberNumber: '•••• •••• 7777',
   points: '1,240',

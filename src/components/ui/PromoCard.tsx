@@ -26,24 +26,25 @@ export function PromoCard({
     <motion.div
       whileHover={{ y: -3, scale: 1.01 }}
       transition={{ duration: 0.2 }}
-      className="relative overflow-hidden rounded-2xl min-h-[240px] flex"
+      className="group relative overflow-hidden rounded-2xl min-h-[240px] flex h-full"
     >
       {image && (
         <img
           src={image}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       )}
-      <div className={`absolute inset-0 bg-gradient-to-r ${color} ${image ? 'opacity-85' : 'opacity-100'}`} />
+      {image && <div className="absolute inset-0 bg-gradient-to-t from-surface-900/95 via-surface-900/45 to-surface-900/10" />}
+      <div className={`absolute inset-0 bg-gradient-to-r ${color} ${image ? 'opacity-70' : 'opacity-100'}`} />
       <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end w-full">
         {badge && (
           <span className="inline-block w-fit mb-3 px-2.5 py-1 text-xs font-bold rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/10">
             {badge}
           </span>
         )}
-        <h3 className="text-xl sm:text-2xl font-bold text-white">{title}</h3>
+        <h3 className="section-heading text-xl sm:text-2xl text-white">{title}</h3>
         <p className="mt-1.5 text-sm text-white/80 max-w-sm">{description}</p>
         {promoCode && (
           <div className="mt-3 inline-flex w-fit items-center gap-2 px-3 py-1.5 rounded-lg bg-white/15 backdrop-blur-sm border border-white/10">

@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Neuron Angled";
+  src: url("/fonts/NeuronAngled-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neuron Angled";
+  src: url("/fonts/NeuronAngled-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-display: "Neuron Angled", ui-sans-serif, system-ui, sans-serif;
 
   --color-brand-50: #e8eaf6;
   --color-brand-100: #c5cae9;
@@ -41,6 +57,10 @@
   --color-surface-800: #111936;
   --color-surface-700: #1b2550;
   --color-surface-600: #253168;
+
+  --color-paper-50: #f8fafc;
+  --color-paper-100: #f1f5f9;
+  --color-paper-200: #e2e8f0;
 }
 
 @layer base {
@@ -61,15 +81,31 @@
 @layer components {
   .section-heading {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 700;
+    font-style: italic;
     letter-spacing: -0.02em;
     line-height: 1.1;
+  }
+
+  .price-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-style: italic;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
   }
 
   .glass-card {
     background: rgba(12, 18, 41, 0.7);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(27, 42, 107, 0.2);
+  }
+
+  .glass-card-paper {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-paper-200);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
   }
 
   .gradient-brand {
@@ -97,6 +133,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 

@@ -11,12 +11,12 @@ const values = [
   {
     icon: UtensilsCrossed,
     title: 'Hot Food Anytime',
-    description: 'Roller grill, fried chicken, pizza by the slice — real food when you need it.',
+    description: 'Roller grill, fried chicken, pizza by the slice: real food when you need it.',
   },
   {
     icon: Gift,
     title: 'Rewards That Add Up',
-    description: 'Earn points on gas, snacks, drinks — everything. Cash them in for free stuff.',
+    description: 'Earn points on gas, snacks, drinks, everything. Cash them in for free stuff.',
   },
   {
     icon: Clock,
@@ -32,7 +32,7 @@ export function BrandValues() {
         title="Why People Pick 7th Heaven"
         subtitle="It's the stop you know won't let you down."
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
         {values.map((v, i) => (
           <motion.div
             key={v.title}
@@ -40,13 +40,15 @@ export function BrandValues() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="text-center group"
+            className="flex flex-col items-center group w-full min-w-0"
           >
-            <div className="mx-auto w-14 h-14 rounded-2xl bg-accent-400/10 flex items-center justify-center mb-4 group-hover:bg-accent-400/20 transition-colors">
+            <div className="shrink-0 w-14 h-14 rounded-2xl bg-accent-400/10 flex items-center justify-center mb-4 group-hover:bg-accent-400/20 transition-colors">
               <v.icon className="w-7 h-7 text-accent-400" />
             </div>
-            <h3 className="text-lg font-bold text-white">{v.title}</h3>
-            <p className="mt-2 text-sm text-blue-200/50 leading-relaxed">{v.description}</p>
+            <div className="w-full max-w-[16.5rem] mx-auto text-right">
+              <h3 className="section-heading text-lg text-white text-balance">{v.title}</h3>
+              <p className="mt-2 text-sm text-blue-200/50 leading-relaxed text-pretty">{v.description}</p>
+            </div>
           </motion.div>
         ))}
       </div>

@@ -308,7 +308,7 @@ export function Navbar() {
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 group" aria-label="Home">
           <img src="/media/logo.png" alt="7th Heaven" className="w-9 h-9 rounded-lg object-contain" />
-          <span className="text-lg font-bold tracking-tight text-white group-hover:text-accent-300 transition-colors hidden sm:block">
+          <span className="section-heading text-lg tracking-tight text-white group-hover:text-accent-300 transition-colors hidden sm:block">
             7th Heaven
           </span>
         </Link>
@@ -414,6 +414,13 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                to="/21-plus"
+                className="flex items-center gap-2 px-4 py-3 text-base font-medium text-purple-200 hover:text-purple-100 hover:bg-purple-500/15 rounded-lg border border-purple-500/25 transition-colors"
+              >
+                <ShieldCheck className="w-5 h-5 shrink-0 opacity-90 text-purple-400" />
+                Beer, wine &amp; more (21+)
+              </Link>
               <div className="pt-3 flex flex-col gap-2 border-t border-brand-500/20 mt-2">
                 {ctaItem && (
                   <Link

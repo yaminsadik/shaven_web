@@ -6,7 +6,7 @@ import { ArrowRight, Star } from 'lucide-react'
 
 export function RewardsSection() {
   return (
-    <Section>
+    <Section variant="paper">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
           <SectionHeader title="Heaven Rewards" subtitle="Points on gas, food, and everything in between. Free to join." align="left" />
@@ -18,7 +18,7 @@ export function RewardsSection() {
           <div className="mt-8">
             <Link
               to="/rewards"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-accent text-brand-900 font-semibold shadow-lg shadow-accent-400/25 hover:shadow-accent-400/40 transition-shadow"
+              className="inline-flex items-center gap-2 px-6 py-3.5 min-h-11 rounded-full gradient-accent text-brand-900 font-semibold shadow-lg shadow-accent-400/25 hover:shadow-accent-400/40 transition-shadow"
             >
               Join Heaven Rewards
               <ArrowRight className="w-4 h-4" />
@@ -41,7 +41,7 @@ export function RewardsSection() {
                   <span className="text-sm font-semibold text-white/90">Heaven Rewards</span>
                 </div>
                 <p className="text-xs text-white/60 uppercase tracking-wider">Points Balance</p>
-                <p className="text-4xl font-bold text-white mt-1">{loyaltyCard.points}</p>
+                <p className="price-text text-4xl text-white mt-1">{loyaltyCard.points}</p>
                 <div className="mt-4 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-white/60">Tier</p>
