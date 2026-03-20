@@ -92,13 +92,11 @@ function AccordionTiers() {
   const [openTier, setOpenTier] = useState<string | null>(null)
 
   const pointTiers = [
-    { name: '500 Points', perks: ['Free fountain drink', 'Free small coffee'] },
-    { name: '1000 Points', perks: ['Free roller grill item', 'Free energy drink'] },
-    { name: '1500 Points', perks: ['Free pizza slice', 'Free breakfast sandwich'] },
-    { name: '2000 Points', perks: ['Free chicken tenders (3pc)', 'Free large coffee'] },
-    { name: '3000 Points', perks: ['Free 8pc family chicken bucket', 'Free fuel discount $2'] },
-    { name: '4000 Points', perks: ['Free full pizza pie', '15¢/gal fuel discount'] },
-    { name: '5000 Points', perks: ['$25 store credit', 'Premium rewards unlocked'] },
+    { name: '250 Points', perks: ['$1.00 store credit'] },
+    { name: '1,500 Points', perks: ['$6.00 store credit'] },
+    { name: '2,750 Points', perks: ['$11.00 store credit'] },
+    { name: '3,750 Points', perks: ['$15.00 store credit'] },
+    { name: '5,000 Points', perks: ['$20.00 store credit'] },
   ]
 
   return (
@@ -128,13 +126,13 @@ function AccordionTiers() {
                 }`}
               />
             </button>
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {openTier === tier.name && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.15 }}
                   className="overflow-hidden"
                 >
                   <div className="px-4 py-3 space-y-2">
@@ -263,7 +261,7 @@ export function RewardsPage() {
 
           <Section>
             <SectionHeader title="Rewards Tiers" subtitle="Stop in more, save more." />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
               {rewardsTiers.map((tier, i) => (
                 <motion.div
                   key={tier.name}

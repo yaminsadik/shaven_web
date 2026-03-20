@@ -4,10 +4,42 @@ import { MapPin, Clock, Phone, Navigation } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const mockStores = [
-  { id: 1, name: '7th Heaven #12 — Main & Oak', address: '1200 Main St, Springfield', hours: '24/7', phone: '(555) 700-0001', distance: '0.8 mi', gas: true },
-  { id: 2, name: '7th Heaven #34 — Highway 9', address: '4501 Highway 9, Springfield', hours: '24/7', phone: '(555) 700-0002', distance: '2.3 mi', gas: true },
-  { id: 3, name: '7th Heaven #18 — College Ave', address: '890 College Ave, Springfield', hours: '5 AM – 1 AM', phone: '(555) 700-0003', distance: '3.1 mi', gas: true },
-  { id: 4, name: '7th Heaven #45 — Industrial Blvd', address: '3200 Industrial Blvd, Springfield', hours: '24/7', phone: '(555) 700-0004', distance: '5.6 mi', gas: true },
+  {
+    id: 1,
+    name: '7th Heaven — Kirksville',
+    address: '1810 N Baltimore St, Kirksville, MO 63501',
+    hours: 'Open 24/7',
+    phone: '(660) 665-1234',
+    amenities: ['Gas', 'ATM', 'Hot Food', 'Car Wash'],
+    gas: true,
+  },
+  {
+    id: 2,
+    name: '7th Heaven — Macon',
+    address: '404 Vine St, Macon, MO 63552',
+    hours: 'Open 24/7',
+    phone: '(660) 385-5678',
+    amenities: ['Gas', 'Hot Food', 'Money Orders'],
+    gas: true,
+  },
+  {
+    id: 3,
+    name: '7th Heaven — Trenton',
+    address: '1101 E 9th St, Trenton, MO 64683',
+    hours: 'Open 24/7',
+    phone: '(660) 359-9012',
+    amenities: ['Gas', 'ATM', 'Hot Food', 'Money Orders', 'Propane'],
+    gas: true,
+  },
+  {
+    id: 4,
+    name: '7th Heaven — Chillicothe',
+    address: '905 Washington St, Chillicothe, MO 64601',
+    hours: 'Open 24/7',
+    phone: '(660) 646-3456',
+    amenities: ['Gas', 'ATM', 'Hot Food', 'Car Wash', 'Propane'],
+    gas: true,
+  },
 ]
 
 export function StoresPage() {
@@ -41,7 +73,7 @@ export function StoresPage() {
 
       {/* Store List */}
       <Section dark>
-        <SectionHeader title="Nearby Locations" subtitle="Based on your area." />
+        <SectionHeader title="Our Locations" subtitle="All stores open 24/7 in North Missouri." />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
           {mockStores.map((store, i) => (
             <motion.div
@@ -66,10 +98,16 @@ export function StoresPage() {
                       {store.phone}
                     </span>
                   </div>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {store.amenities.map((a) => (
+                      <span key={a} className="text-xs px-2 py-0.5 rounded-full bg-brand-600/50 text-blue-200/50 border border-brand-500/20">
+                        {a}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="text-sm font-semibold text-accent-400">{store.distance}</span>
-                  <button className="mt-2 flex items-center gap-1 text-xs text-blue-200/50 hover:text-accent-400 transition-colors">
+                  <button className="flex items-center gap-1 text-xs text-blue-200/50 hover:text-accent-400 transition-colors">
                     <Navigation className="w-3 h-3" />
                     Directions
                   </button>

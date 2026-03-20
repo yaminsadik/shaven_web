@@ -12,6 +12,7 @@ export function AgeGateModal({ open, onClose }: AgeGateModalProps) {
 
   const handleAccept = () => {
     acceptAgeGate()
+    onClose()
   }
 
   return (

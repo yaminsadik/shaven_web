@@ -4,41 +4,67 @@ export const rewardsBenefits = [
   {
     id: 'earn-points',
     title: 'Points on Everything',
-    description: '10 points per $1 spent on gas, food, drinks, and snacks.',
+    description: 'Earn points every visit — gas, food, drinks, and snacks. 250 pts = $1 in savings.',
     icon: Coins,
   },
   {
     id: 'fuel-savings',
     title: 'Fuel Discounts',
-    description: 'Members save 5¢/gal every fill-up. Gold members save 10¢.',
+    description: 'Members save on every fill-up. Gold & above earn even more per gallon.',
     icon: Fuel,
   },
   {
     id: 'bonus-days',
     title: 'Bonus Point Days',
-    description: 'Double and triple point weekends every month.',
+    description: 'Diamond members get double point days monthly. Bonus events run every tier.',
     icon: Zap,
   },
   {
     id: 'free-stuff',
     title: 'Free Food & Drinks',
-    description: 'Cash in points for free fountain drinks, coffee, snacks, and roller grill items.',
+    description: 'Redeem for store credit — $1, $6, $11, $15, or $20 off your next purchase.',
     icon: Crown,
   },
 ]
 
 export const rewardsTiers = [
-  { name: 'Member', points: '0', perks: '10pts/$1 • 5¢/gal fuel discount', color: 'bg-stone-600' },
-  { name: 'Silver', points: '500', perks: 'Birthday freebie • Bonus offers', color: 'bg-stone-400' },
-  { name: 'Gold', points: '2,000', perks: 'Free monthly drink • 10¢/gal off', color: 'bg-accent-500' },
-  { name: 'Platinum', points: '5,000', perks: 'Surprise freebies • 15¢/gal off', color: 'bg-accent-400' },
+  {
+    name: 'Bronze',
+    points: '0',
+    perks: 'Base deals access • Birthday bonus',
+    color: 'bg-amber-700',
+  },
+  {
+    name: 'Silver',
+    points: '5,000',
+    perks: 'Early deal access • Birthday bonus • 1.25x earn rate',
+    color: 'bg-stone-400',
+  },
+  {
+    name: 'Gold',
+    points: '10,000',
+    perks: 'Exclusive Gold offers • Birthday double points • 1.5x earn rate',
+    color: 'bg-accent-500',
+  },
+  {
+    name: 'Platinum',
+    points: '20,000',
+    perks: 'Free monthly drink • Priority support • Platinum-only deals • 2x earn rate',
+    color: 'bg-accent-400',
+  },
+  {
+    name: 'Diamond',
+    points: '50,000',
+    perks: 'VIP deals • Double point days monthly • Free car wash monthly • 2.5x earn rate',
+    color: 'bg-sky-400',
+  },
 ]
 
 export const loyaltyCard = {
   memberName: 'Heaven Rewards Member',
   memberNumber: '•••• •••• 7777',
   points: '1,240',
-  tier: 'Silver',
-  nextTier: 'Gold',
-  pointsToNext: '760',
+  tier: 'Bronze',
+  nextTier: 'Silver',
+  pointsToNext: '3,760',
 }
