@@ -1,0 +1,65 @@
+import { Link } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
+
+interface PromoCardProps {
+  title: string
+  description: string
+  badge?: string
+  promoCode?: string
+  image?: string
+  color?: string
+  ctaText?: string
+  ctaHref?: string
+}
+
+export function PromoCard({
+  title,
+  description,
+  badge,
+  promoCode,
+  image,
+  color = 'from-brand-600 to-brand-800',
+  ctaText,
+  ctaHref,
+}: PromoCardProps) {
+  return (
+    <motion.div
+      whileHover={{ y: -3, scale: 1.01 }}
+      transition={{ duration: 0.2 }}
+      className="relative overflow-hidden rounded-2xl min-h-[240px] flex"
+    >
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+      )}
+      <div className={`absolute inset-0 bg-gradient-to-r ${color} ${image ? 'opacity-85' : 'opacity-100'}`} />
+      <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end w-full">
+        {badge && (
+          <span className="inline-block w-fit mb-3 px-2.5 py-1 text-xs font-bold rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/10">
+            {badge}
+          </span>
+        )}
+        <h3 className="text-xl sm:text-2xl font-bold text-white">{title}</h3>
+        <p className="mt-1.5 text-sm text-white/80 max-w-sm">{description}</p>
+        {promoCode && (
+          <div className="mt-3 inline-flex w-fit items-center gap-2 px-3 py-1.5 rounded-lg bg-white/15 backdrop-blur-sm border border-white/10">
+            <span className="text-xs text-white/60">Use code:</span>
+            <span className="text-sm font-bold text-white tracking-wider">{promoCode}</span>
+          </div>
+        )}
+        {ctaText && ctaHref && (
+          <Link
+            to={ctaHref}
+            className="mt-4 inline-flex w-fit items-center gap-2 px-5 py-2.5 rounded-full bg-white text-brand-900 text-sm font-semibold hover:bg-white/90 transition-colors shadow-lg"
+          >
+            {ctaText}
+          </Link>
+        )}
+      </div>
+    </motion.div>
+  )
+}
