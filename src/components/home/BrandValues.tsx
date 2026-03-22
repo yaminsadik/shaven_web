@@ -31,6 +31,7 @@ export function BrandValues() {
       <SectionHeader
         title="Why People Pick 7th Heaven"
         subtitle="It's the stop you know won't let you down."
+        align="right"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
         {values.map((v, i) => (
@@ -45,7 +46,7 @@ export function BrandValues() {
             <div className="shrink-0 w-14 h-14 rounded-2xl bg-accent-400/10 flex items-center justify-center mb-4 group-hover:bg-accent-400/20 transition-colors">
               <v.icon className="w-7 h-7 text-accent-400" />
             </div>
-            <div className="w-full max-w-[16.5rem] mx-auto text-right">
+            <div className="w-full max-w-[16.5rem] mx-auto text-center">
               <h3 className="section-heading text-lg text-white text-balance">{v.title}</h3>
               <p className="mt-2 text-sm text-blue-200/50 leading-relaxed text-pretty">{v.description}</p>
             </div>

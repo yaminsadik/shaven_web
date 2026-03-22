@@ -158,7 +158,6 @@ const navItems: NavItem[] = [
   },
   { label: 'Rewards', href: '/rewards', megaMenu: { mode: 'simple', links: rewardsLinks } },
   { label: 'Find Store', href: '/stores', prefixIcon: 'mappin' },
-  { label: 'Get the App', href: '/app', isCta: true },
 ]
 
 // --- Render helpers ---

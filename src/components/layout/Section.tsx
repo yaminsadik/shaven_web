@@ -80,7 +80,7 @@ export function SectionHeader({
 }: {
   title: string
   subtitle?: string
-  align?: 'left' | 'center'
+  align?: 'left' | 'center' | 'right'
   action?: ReactNode
 }) {
   const tone = useSectionTone()
@@ -94,8 +94,8 @@ export function SectionHeader({
       : 'mt-3 text-base sm:text-lg text-blue-200/50 max-w-2xl'
 
   return (
-    <div className={`mb-10 md:mb-14 ${align === 'center' ? 'text-center' : ''}`}>
-      <div className={`flex items-end justify-between ${align === 'center' ? 'flex-col items-center gap-4' : 'gap-4'}`}>
+    <div className={`mb-10 md:mb-14 ${align === 'center' ? 'text-center' : align === 'right' ? 'text-right' : ''}`}>
+      <div className={`flex items-end justify-between ${align === 'center' ? 'flex-col items-center gap-4' : align === 'right' ? 'flex-col items-end gap-4' : 'gap-4'}`}>
         <div>
           <h2 className={titleCls}>{title}</h2>
           {subtitle && <p className={subtitleCls}>{subtitle}</p>}

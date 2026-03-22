@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
@@ -6,12 +6,66 @@ import { HeroOffersCarousel } from '@/components/home/HeroOffersCarousel'
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const [hasVideoError, setHasVideoError] = useState(false)
 
   useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-    v.muted = true
-    v.play().catch(() => {})
+    const video = videoRef.current
+    if (!video) return
+
+    let isCancelled = false
+
+    const attemptPlay = async () => {
+      video.defaultMuted = true
+      video.muted = true
+      video.playsInline = true
+
+      try {
+        await video.play()
+      } catch {
+        if (!isCancelled) {
+          setIsVideoPlaying(false)
+        }
+      }
+    }
+
+    const handleLoadedData = () => {
+      if (isCancelled) return
+      setHasVideoError(false)
+      void attemptPlay()
+    }
+
+    const handlePlaying = () => {
+      if (isCancelled) return
+      setHasVideoError(false)
+      setIsVideoPlaying(true)
+    }
+
+    const handleError = () => {
+      if (isCancelled) return
+      setHasVideoError(true)
+      setIsVideoPlaying(false)
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState !== 'visible') return
+      void attemptPlay()
+    }
+
+    video.addEventListener('loadeddata', handleLoadedData)
+    video.addEventListener('playing', handlePlaying)
+    video.addEventListener('error', handleError)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    void attemptPlay()
+
+    return () => {
+      isCancelled = true
+      video.removeEventListener('loadeddata', handleLoadedData)
+      video.removeEventListener('playing', handlePlaying)
+      video.removeEventListener('error', handleError)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
   }, [])
 
   return (
@@ -64,17 +118,31 @@ export function HeroSection() {
             className="relative flex justify-center items-center py-6 px-8 sm:py-8 sm:px-10"
           >
             <div className="relative w-full max-w-[20rem] xs:max-w-[24rem] sm:max-w-[32rem] lg:max-w-[40rem]">
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="w-full rounded-3xl shadow-2xl shadow-black/40 object-cover aspect-[4/3]"
-              >
-                <source src="/media/hero/hero.mp4" type="video/mp4" />
-              </video>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white/5 shadow-2xl shadow-black/40">
+                <img
+                  src="/media/store-exterior.png"
+                  alt=""
+                  aria-hidden="true"
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                    isVideoPlaying && !hasVideoError ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_55%)]" />
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  poster="/media/store-exterior.png"
+                  className={`relative z-10 h-full w-full object-cover transition-opacity duration-500 ${
+                    isVideoPlaying && !hasVideoError ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <source src="/media/hero/hero-mobile.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </motion.div>
         </div>

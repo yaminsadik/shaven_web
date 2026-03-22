@@ -17,6 +17,8 @@
 }
 
 @theme {
+  --breakpoint-xs: 480px;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Neuron Angled", ui-sans-serif, system-ui, sans-serif;
 
