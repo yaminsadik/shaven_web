@@ -17,7 +17,7 @@ export function CategoryCard({ title, subtitle, icon: Icon, color, href, image }
       <motion.div
         whileHover={{ y: -6, scale: 1.02 }}
         transition={{ duration: 0.25 }}
-        className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
+        className="group relative aspect-[1.08] cursor-pointer overflow-hidden rounded-2xl sm:aspect-[4/3]"
       >
         {image && (
           <img
@@ -28,12 +28,14 @@ export function CategoryCard({ title, subtitle, icon: Icon, color, href, image }
           />
         )}
         <div className={`absolute inset-0 bg-gradient-to-br ${color} ${image ? 'opacity-70 group-hover:opacity-60' : ''} transition-opacity`} />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-4">
-          <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-            <Icon className="w-7 h-7 text-white" />
+        <div className="relative z-10 flex h-full flex-col items-start p-3.5 text-left sm:items-center sm:justify-center sm:p-4 sm:text-center">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-sm transition-transform group-hover:scale-110 sm:mb-3 sm:h-14 sm:w-14">
+            <Icon className="h-5 w-5 text-white sm:h-7 sm:w-7" />
           </div>
-          <h3 className="section-heading text-base sm:text-lg text-white">{title}</h3>
-          <p className="text-xs text-white/70 mt-0.5">{subtitle}</p>
+          <div className="mt-auto sm:mt-0">
+            <h3 className="section-heading text-base text-white sm:text-lg">{title}</h3>
+            <p className="mt-0.5 max-w-[11rem] text-xs text-white/78 sm:max-w-none">{subtitle}</p>
+          </div>
         </div>
       </motion.div>
     </Link>

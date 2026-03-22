@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { X } from 'lucide-react'
 
 const DISMISSED_KEY = '7h-urgency-strip-dismissed'
@@ -13,13 +13,10 @@ const items = [
 ]
 
 export function UrgencyStrip() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    if (!sessionStorage.getItem(DISMISSED_KEY)) {
-      setVisible(true)
-    }
-  }, [])
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return !window.sessionStorage.getItem(DISMISSED_KEY)
+  })
 
   if (!visible) return null
 

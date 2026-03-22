@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { StoreLocatorStrip } from './StoreLocatorStrip'
-import { Instagram, Twitter, Facebook, Youtube } from 'lucide-react'
+import { ChevronDown, Instagram, Twitter, Facebook, Youtube } from 'lucide-react'
 
 const footerLinks = {
   'Get To Know Us': [
@@ -78,12 +79,58 @@ function FooterColumnLink({
 }
 
 export function Footer() {
+  const [openGroup, setOpenGroup] = useState<string>('Download')
+
   return (
     <>
       <StoreLocatorStrip />
       <footer className="bg-brand-900 border-t border-brand-600/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
+          <div className="md:hidden">
+            <Link to="/" className="group flex items-center gap-3">
+              <img src="/media/logo.png" alt="7th Heaven" className="h-14 w-14 rounded-xl object-contain" />
+              <div>
+                <span className="section-heading text-base text-white/90 group-hover:text-accent-300 transition-colors">
+                  7th Heaven
+                </span>
+                <p className="mt-1 text-sm text-blue-200/45">Deals, rewards, fuel, and hot food.</p>
+              </div>
+            </Link>
+            <div className="mt-6 space-y-3">
+              {Object.entries(footerLinks).map(([title, links]) => {
+                const isOpen = openGroup === title
+
+                return (
+                  <div key={title} className="overflow-hidden rounded-2xl border border-brand-600/20 bg-brand-800/60">
+                    <button
+                      type="button"
+                      onClick={() => setOpenGroup((current) => (current === title ? '' : title))}
+                      className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="section-heading text-sm text-white">{title}</span>
+                      <ChevronDown className={`h-4 w-4 text-blue-200/60 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isOpen && (
+                      <ul className="space-y-2.5 px-5 pb-4">
+                        {links.map((link) => (
+                          <li key={link.label}>
+                            <FooterColumnLink
+                              label={link.label}
+                              href={link.href}
+                              placeholder={'placeholder' in link ? link.placeholder : undefined}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="hidden grid-cols-2 gap-8 md:grid md:grid-cols-5 md:gap-6">
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title} className="min-w-0">
                 <h3 className="section-heading text-sm text-white mb-4">{title}</h3>

@@ -9,13 +9,15 @@ export function RewardsSection() {
     <Section variant="paper">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
-          <SectionHeader title="Heaven Rewards" subtitle="Points on gas, food, and everything in between. Free to join." align="left" />
+          <SectionHeader title="Heaven Rewards" subtitle="Free points on fuel, food, and drinks. Join once, save every visit." align="left" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {rewardsBenefits.map((b) => (
-              <RewardsCard key={b.id} {...b} />
+            {rewardsBenefits.map((b, index) => (
+              <div key={b.id} className={index === rewardsBenefits.length - 1 ? 'hidden sm:block' : ''}>
+                <RewardsCard {...b} />
+              </div>
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <Link
               to="/rewards"
               className="inline-flex items-center gap-2 px-6 py-3.5 min-h-11 rounded-full gradient-accent text-brand-900 font-semibold shadow-lg shadow-accent-400/25 hover:shadow-accent-400/40 transition-shadow"

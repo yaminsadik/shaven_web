@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
@@ -29,7 +30,7 @@ const variantClasses: Record<SectionVariant, string> = {
   paper: 'bg-paper-50 border-y border-slate-200/70',
 }
 
-function toneForSection(variant: SectionVariant | undefined, dark: boolean | undefined): SectionTone {
+function toneForSection(variant: SectionVariant | undefined): SectionTone {
   if (variant === 'paper') return 'onPaper'
   return 'onDark'
 }
@@ -50,7 +51,7 @@ export function Section({
       ? variantClasses.dark
       : variantClasses.light
 
-  const tone = toneForSection(resolvedVariant, dark)
+  const tone = toneForSection(resolvedVariant)
 
   return (
     <SectionToneContext.Provider value={tone}>
@@ -61,7 +62,7 @@ export function Section({
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`
-        ${padded ? 'px-4 sm:px-6 lg:px-8 py-16 md:py-24' : ''}
+        ${padded ? 'px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24' : ''}
         ${bg}
         ${className}
       `}
@@ -91,10 +92,10 @@ export function SectionHeader({
   const subtitleCls =
     tone === 'onPaper'
       ? 'mt-3 text-base sm:text-lg text-slate-600 max-w-2xl'
-      : 'mt-3 text-base sm:text-lg text-blue-200/50 max-w-2xl'
+      : 'mt-3 text-base sm:text-lg text-blue-100/65 max-w-2xl'
 
   return (
-    <div className={`mb-10 md:mb-14 ${align === 'center' ? 'text-center' : align === 'right' ? 'text-right' : ''}`}>
+    <div className={`mb-8 md:mb-12 ${align === 'center' ? 'text-center' : align === 'right' ? 'text-right' : ''}`}>
       <div className={`flex items-end justify-between ${align === 'center' ? 'flex-col items-center gap-4' : align === 'right' ? 'flex-col items-end gap-4' : 'gap-4'}`}>
         <div>
           <h2 className={titleCls}>{title}</h2>

@@ -276,8 +276,12 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    closeMobileMenu()
-    setActiveMega(null)
+    const frame = window.requestAnimationFrame(() => {
+      closeMobileMenu()
+      setActiveMega(null)
+    })
+
+    return () => window.cancelAnimationFrame(frame)
   }, [location.pathname, closeMobileMenu])
 
   const handleMegaEnter = (label: string) => {
