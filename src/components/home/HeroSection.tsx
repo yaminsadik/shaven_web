@@ -1,9 +1,19 @@
+import { useEffect, useRef } from 'react'
 import { Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { HeroOffersCarousel } from '@/components/home/HeroOffersCarousel'
 
 export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.muted = true
+    v.play().catch(() => {})
+  }, [])
+
   return (
     <section className="relative min-h-[100dvh] sm:min-h-[max(90dvh,32rem)] lg:min-h-[max(85dvh,32rem)] flex flex-col overflow-hidden">
       {/* Full-bleed colored background */}
@@ -55,10 +65,12 @@ export function HeroSection() {
           >
             <div className="relative w-full max-w-[20rem] xs:max-w-[24rem] sm:max-w-[32rem] lg:max-w-[40rem]">
               <video
+                ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="w-full rounded-3xl shadow-2xl shadow-black/40 object-cover aspect-[4/3]"
               >
                 <source src="/media/hero/hero.mp4" type="video/mp4" />
