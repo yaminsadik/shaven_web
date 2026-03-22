@@ -55,13 +55,14 @@ export function HeroSection() {
           >
             <div className="relative w-full max-w-[20rem] xs:max-w-[24rem] sm:max-w-[32rem] lg:max-w-[40rem]">
               <video
-                src="/media/hero/hero.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
                 className="w-full rounded-3xl shadow-2xl shadow-black/40 object-cover aspect-[4/3]"
-              />
+              >
+                <source src="/media/hero/hero.mp4" type="video/mp4" />
+              </video>
             </div>
           </motion.div>
         </div>
