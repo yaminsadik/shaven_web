@@ -417,13 +417,7 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                to="/21-plus"
-                className="flex items-center gap-2 px-4 py-3 text-base font-medium text-purple-200 hover:text-purple-100 hover:bg-purple-500/15 rounded-lg border border-purple-500/25 transition-colors"
-              >
-                <ShieldCheck className="w-5 h-5 shrink-0 opacity-90 text-purple-400" />
-                Beer, wine &amp; more (21+)
-              </Link>
+
               <div className="pt-3 flex flex-col gap-2 border-t border-brand-500/20 mt-2">
                 {ctaItem && (
                   <Link
