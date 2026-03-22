@@ -7,30 +7,32 @@ import { Download } from 'lucide-react'
 export function AppPage() {
   return (
     <>
-      {/* Hero: split layout with device mockup */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 gradient-brand overflow-hidden">
+      <section className="relative overflow-hidden gradient-brand pt-24 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(232,163,23,0.06),transparent_50%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <h1 className="section-heading text-4xl sm:text-5xl md:text-6xl text-white">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+            <div className="max-w-2xl">
+              <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100/80">
+                Mobile first
+              </span>
+              <h1 className="section-heading mt-5 text-4xl text-white sm:text-5xl md:text-6xl">
                 The{' '}
                 <span className="text-accent-400">7th Heaven App</span>
               </h1>
-              <p className="mt-5 text-lg text-blue-200/70 max-w-lg">
+              <p className="mt-5 text-base text-blue-100/75 sm:text-lg">
                 Track rewards, clip deals, pay at the pump, and find your nearest store.
                 Everything you need for a faster stop.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <span
-                  className="inline-flex items-center gap-2 px-6 py-3.5 min-h-11 rounded-full bg-white/10 border border-white/20 text-blue-100/80 font-semibold cursor-not-allowed"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 font-semibold text-blue-100/80 cursor-not-allowed"
                   title="App Store link coming soon"
                 >
                   <Download className="w-5 h-5 shrink-0" />
                   iOS: coming soon
                 </span>
                 <span
-                  className="inline-flex items-center gap-2 px-6 py-3.5 min-h-11 rounded-full border border-white/15 text-blue-200/50 font-semibold cursor-not-allowed"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3.5 font-semibold text-blue-200/50 cursor-not-allowed"
                   title="Google Play link coming soon"
                 >
                   <Download className="w-5 h-5 shrink-0" />
@@ -39,18 +41,18 @@ export function AppPage() {
               </div>
               <p className="mt-3 text-sm text-blue-200/40">Store links will go live when the app launches.</p>
             </div>
-            <div className="flex justify-center">
+            <div className="hidden justify-center lg:flex">
               <DeviceMockup />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
       <Section variant="paper">
         <SectionHeader
           title="What the App Does"
           subtitle="Makes your stop quicker and saves you money. That's it."
+          align="left"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {appFeatures.map((f, i) => (
@@ -72,9 +74,8 @@ export function AppPage() {
         </div>
       </Section>
 
-      {/* Coming Soon */}
       <Section dark>
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto text-left sm:text-center">
           <h2 className="section-heading text-3xl sm:text-4xl text-white">
             Web App Coming Soon
           </h2>

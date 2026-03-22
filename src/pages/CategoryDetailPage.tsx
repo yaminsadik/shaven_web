@@ -29,7 +29,7 @@ export function CategoryDetailPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
+      <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
         <div className="absolute inset-0">
           <img
             src={page.heroImage}
@@ -42,7 +42,7 @@ export function CategoryDetailPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             to={page.backLink.href}
-            className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors mb-6"
+            className="mb-6 inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             {page.backLink.label}
@@ -90,6 +90,7 @@ export function CategoryDetailPage() {
         <SectionHeader
           title={page.section === 'deals' ? 'Current Deals' : page.section === 'rewards' ? 'How It Works' : 'What We Carry'}
           subtitle={page.section === 'deals' ? 'Available now at all locations.' : page.section === 'rewards' ? 'Simple, rewarding, free.' : 'Available in-store. Prices may vary by location.'}
+          align="left"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {page.products.map((product, i) => (
@@ -132,7 +133,7 @@ export function CategoryDetailPage() {
       {/* Placeholder: More coming soon */}
       <Section dark>
         <div className="text-center max-w-2xl mx-auto">
-          <div className="glass-card rounded-2xl p-8 sm:p-10">
+          <div className="glass-card rounded-2xl p-6 sm:p-10">
             <Tag className="w-8 h-8 text-accent-400 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white mb-2">More Products Coming Soon</h3>
             <p className="text-sm text-blue-200/50 leading-relaxed">

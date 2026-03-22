@@ -19,7 +19,7 @@ export function AgeGateModal({ onDecline }: AgeGateModalProps) {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="relative w-full max-w-md bg-surface-800 rounded-3xl p-8 sm:p-10 border border-brand-500/20 shadow-2xl"
+        className="relative max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-3xl border border-brand-500/20 bg-surface-800 p-6 shadow-2xl sm:p-10"
       >
         <button
           onClick={onDecline}

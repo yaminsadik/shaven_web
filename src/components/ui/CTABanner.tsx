@@ -20,7 +20,7 @@ export function CTABanner({
   buttonHref,
   variant = 'brand',
 }: CTABannerProps) {
-  const btnClass = `inline-flex items-center gap-2 mt-6 px-6 py-3.5 min-h-11 rounded-full font-semibold transition-all ${
+  const btnClass = `mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold transition-all sm:w-auto ${
     variant === 'brand'
       ? 'bg-brand-700 text-white hover:bg-brand-600 shadow-lg'
       : 'gradient-accent text-brand-900 hover:shadow-lg hover:shadow-accent-400/25'
@@ -40,14 +40,16 @@ export function CTABanner({
 
   return (
     <div
-      className={`rounded-3xl p-8 sm:p-12 text-center ${
+      className={`rounded-3xl p-6 sm:p-10 md:p-12 ${
         variant === 'brand'
           ? 'gradient-accent'
           : 'bg-brand-700/50 border border-brand-500/20'
       }`}
     >
-      <h3 className="section-heading text-2xl sm:text-3xl text-white">{title}</h3>
-      {subtitle && <p className="mt-2 text-white/80 max-w-lg mx-auto">{subtitle}</p>}
+      <div className="flex flex-col items-start sm:items-center sm:text-center">
+        <h3 className="section-heading text-2xl text-white sm:text-3xl">{title}</h3>
+        {subtitle && <p className="mt-2 max-w-lg text-sm text-white/80 sm:text-base">{subtitle}</p>}
+      </div>
       {button}
     </div>
   )

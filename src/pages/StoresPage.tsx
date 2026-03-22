@@ -43,42 +43,50 @@ const mockStores = [
   },
 ]
 
+function normalizePhone(phone: string) {
+  return phone.replace(/\D/g, '')
+}
+
+function directionsHref(address: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+}
+
 export function StoresPage() {
   const [zip, setZip] = useState('')
 
   return (
     <>
-      {/* Hero: brand gradient */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 gradient-brand">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mx-auto w-16 h-16 rounded-2xl bg-accent-400/20 flex items-center justify-center mb-6">
-            <MapPin className="w-8 h-8 text-accent-400" />
+      <section className="relative gradient-brand pt-24 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl text-left sm:text-center sm:mx-auto">
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-400/20 sm:mx-auto">
+              <MapPin className="w-8 h-8 text-accent-400" />
+            </div>
+            <h1 className="section-heading text-4xl text-white sm:text-5xl md:text-6xl">
+              Find a Store
+            </h1>
+            <p className="mt-4 text-base text-blue-100/75 sm:text-lg">
+              Gas, food, drinks, and everything you need. Find the closest location and get there in one tap.
+            </p>
           </div>
-          <h1 className="section-heading text-4xl sm:text-5xl md:text-6xl text-white">
-            Find a Store
-          </h1>
-          <p className="mt-4 text-lg text-blue-200/70 max-w-xl mx-auto">
-            Gas, food, drinks, and everything you need. Find the closest location and stop in.
-          </p>
         </div>
       </section>
 
-      {/* Map + locator tools */}
       <Section variant="paper">
         <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
-          <div className="lg:col-span-3 min-h-[220px] sm:min-h-[260px] lg:min-h-[300px] rounded-3xl overflow-hidden bg-gradient-to-br from-brand-600/15 to-surface-900/5 border border-slate-200 flex flex-col items-center justify-center p-8 text-center">
+          <div className="order-2 lg:order-1 lg:col-span-3 min-h-[220px] sm:min-h-[260px] lg:min-h-[300px] rounded-3xl overflow-hidden bg-gradient-to-br from-brand-600/15 to-surface-900/5 border border-slate-200 flex flex-col items-center justify-center p-8 text-center">
             <MapPin className="w-12 h-12 text-brand-600/50 mx-auto mb-3" />
             <p className="section-heading text-lg text-brand-800">Map coming soon</p>
             <p className="text-sm text-slate-600 mt-2 max-w-sm">
               We&apos;re connecting live maps so you can search by ZIP and get directions in one tap.
             </p>
           </div>
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="order-1 lg:order-2 lg:col-span-2 flex flex-col gap-4">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <label htmlFor="store-zip" className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 Find by ZIP
               </label>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex flex-col gap-2 sm:flex-row">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
@@ -94,7 +102,7 @@ export function StoresPage() {
                 </div>
                 <button
                   type="button"
-                  className="shrink-0 rounded-xl bg-brand-700 px-4 py-3 text-sm font-semibold text-white hover:bg-brand-600 transition-colors min-h-11"
+                  className="min-h-11 shrink-0 rounded-xl bg-brand-700 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-600 sm:min-w-[7rem]"
                 >
                   Search
                 </button>
@@ -124,8 +132,8 @@ export function StoresPage() {
 
       {/* Store List */}
       <Section dark>
-        <SectionHeader title="Our Locations" subtitle="All stores open 24/7 in North Missouri." />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
+        <SectionHeader title="Our Locations" subtitle="All stores open 24/7 in North Missouri." align="left" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-5xl mx-auto">
           {mockStores.map((store, i) => (
             <motion.div
               key={store.id}
@@ -133,7 +141,7 @@ export function StoresPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="glass-card rounded-2xl p-6 hover:border-accent-400/20 transition-colors"
+              className="glass-card rounded-2xl p-5 sm:p-6 hover:border-accent-400/20 transition-colors"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -157,15 +165,24 @@ export function StoresPage() {
                     ))}
                   </div>
                 </div>
-                <div className="text-right shrink-0">
-                  <button
-                    type="button"
-                    className="mt-2 flex items-center justify-end gap-1 text-xs text-blue-200/50 hover:text-accent-400 transition-colors w-full"
-                  >
-                    <Navigation className="w-3 h-3" />
-                    Directions
-                  </button>
-                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                <a
+                  href={`tel:${normalizePhone(store.phone)}`}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-brand-400/30 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/8"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call
+                </a>
+                <a
+                  href={directionsHref(store.address)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full gradient-accent px-4 py-2.5 text-sm font-semibold text-brand-900"
+                >
+                  <Navigation className="h-4 w-4" />
+                  Directions
+                </a>
               </div>
             </motion.div>
           ))}
